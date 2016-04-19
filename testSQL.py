@@ -25,4 +25,11 @@ Role.query.all()
 User.query.filter_by(role=user_role).all()
 user_role = Role.query.filter_by(name='User').first()
 
-
+python3.5 hello.py shell
+from flask.ext.mail  import Message
+from hello import mail
+msg  = Message('test subject', sender='lpk0628@163.com', recipients=['763409282@qq.com'])
+msg.body = 'text body'
+msg.html = '<b>HTML</b> body'
+with app.app_context():
+    mail.send(msg)
